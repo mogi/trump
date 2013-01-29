@@ -39,77 +39,65 @@ BaseCard = (function() {
 
 
 Card = (function() {
-  // set behavior
-  BaseCard.prototype.is_pip = function() {
-    return 0 < this.number && this.number <= 10;
-  };
+  function Card(suit, number) {
+    this.suit = suit;
+    this.number = number;
 
-  BaseCard.prototype.is_court = function() {
-    return 10 < this.number && this.number <= 13;
-  };
+    // set behaviors
+    this.isPip = function() {
+      return 0 < this.number && this.number <= 10;
+    };
 
-  BaseCard.prototype.is_wild = function() {
-    return this.suit == 0 && this.number == 0;
-  };
-  return BaseCard
-})();
+    this.isCourt = function() {
+      return 10 < this.number && this.number <= 13;
+    };
 
+    this.isWild = function() {
+      return this.suit == 0 && this.number == 0;
+    };
 
-var Lot;
-Lot = (function () {
-  function Lot() {
   }
-  Lot.prototype.shuffle = function () {
-    //Fisher-Yates
-    var i = this.length();
-    for(var i = n - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var tmp = a[i];
-      a[i] = a[j];
-      a[j] = tmp;
-    }
-  return Lot;
+  return Card
 })();
-Lot.prototype = Object.create(Array.prototype);
-//Lot.prototype.constructor = Lot
+Card.prototype = Object.create(BaseCard.prototype);
+Card.prototype.constructor = Card
 
 
-var Deck;
-Deck = (function () {
-  function Deck() {
+Array.prototype.shuffle = function () {
+  //Fisher-Yate
+  var n = this.length;
+  for(var i = n - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = this[i];
+    this[i] = this[j];
+    this[j] = tmp;
   }
-  return Deck;
-})();
-Deck.prototype = Object.create(Lot.prototype);
-//Deck.prototype.constructor = Deck
+  return true;
+}
 
 
-//function createCard(){
-//  var i;
-//  var suit = parseInt(document.fm.A.value);
-//  var number = parseInt(document.fm.B.value);
-//  i = new Card(suit, number);
-//
-//  document.write("<p>Created Card</p>");
-//  document.write("suit : " + i.suit + "<br />");
-//  document.write("number : " + i.number + "<br />");
-//  document.write("pip : " + i.is_pip() + "<br />");
-//  document.write("court : " + i.is_court() + "<br />");
-//  document.write("wild card : " + i.is_wild() + "<br />");
-//}
+var deck = new Array()
+//var ten_squares = [Card(1,i) for each (i in range(0, 12))];
+for (var i = 1; i <= 4; i++) {
+  for (var j = 1; j <= 13; j++) {
+      deck.push(new Card(i,j));
+  }
+}
 
 
-var o;
-o = Card
-o.suit = 1
-o.number = 2
-Deck(o)
-o2 = Card
-o2.suit = 3
-o2.number = 4
-Deck(o2)
+function echoCard(card){
+  document.write("<p>Created Cards</p>");
+  document.write("suit : " + card.suit + "<br />");
+  document.write("number : " + card.number + "<br />");
+  document.write("pip : " + card.isPip() + "<br />");
+  document.write("court : " + card.isCourt() + "<br />");
+  document.write("wild card : " + card.isWild() + "<br />");
+}
 
-function createCard(){
-    document.write(o.suit);
-    document.write(o.prototype.is_pip());
+
+function echoDeck(){
+  deck.shuffle()
+  for (var i = 1; i <= deck.length; j++) {
+    echoCard(deck.pop())
+  }
 }
