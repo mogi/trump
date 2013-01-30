@@ -2,8 +2,8 @@
 // ついでに継承とか、accessor propertyもためす
 
 // import
-document.write('<script type="text/javascript" src="../common/js/exArray.js"></script>');
-document.write('<script type="text/javascript" src="../common/js/loadHTML.js"></script>');
+document.write('<script type="text/javascript" src="' + BASE_DIR + '/static/common/js/exArray.js"></script>');
+document.write('<script type="text/javascript" src="' + BASE_DIR + '/static/common/js/loadHTML.js"></script>');
 
 
 var deck = new Array()

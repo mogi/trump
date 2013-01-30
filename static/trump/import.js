@@ -7,10 +7,8 @@
     var importSrc = function(e){
         return '<script type="text/javascript" src="'+ e +'"></script>' + "\n";
     }
-    var path = './js/';
-    ////jQueryフレームワーク
-    //document.write( importSrc( path + 'jquery-1.3.2.min.js' ) );
-    //サイト全体で使用するJS
+    var path = BASE_DIR + '/static/trump/js/';
+    //trumpで使用するJS
     document.write( importSrc( path + 'card.js' ) );
     document.write( importSrc( path + 'trump.js' ) );
 })();
