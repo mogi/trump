@@ -1,6 +1,11 @@
 // prototypeの練習
 // ついでに継承とか、accessor propertyもためす
 
+// import
+document.write('<script type="text/javascript" src="./static/common/js/exArray.js"></script>');
+document.write('<script type="text/javascript" src="./static/common/js/loadHTML.js"></script>');
+
+
 var deck = new Array()
 //var ten_squares = [Card(1,i) for each (i in range(0, 12))];
 for (var i = 1; i <= 4; i++) {
