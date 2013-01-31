@@ -16,7 +16,8 @@
 
   //trumpで使用するJS
   document.write( importSrc( path + 'card.js' ) );
-  document.write( importSrc( path + 'trump.js' ) );
+  document.write( importSrc( path + 'deck.js' ) );
+  document.write( importSrc( path + 'main.js' ) );
 })();
 
 var BASE_DIR = function(){

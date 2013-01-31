@@ -38,6 +38,7 @@ BaseCard = (function() {
 })();
 
 
+var Card;
 Card = (function() {
   function Card(suit, number) {
     this.suit = suit;
