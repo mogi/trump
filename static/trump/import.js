@@ -18,6 +18,8 @@
   document.write( importSrc( path + 'card.js' ) );
   document.write( importSrc( path + 'deck.js' ) );
   document.write( importSrc( path + 'main.js' ) );
+  // debug
+  document.write( importSrc( path + 'echo.js' ) );
 })();
 
 var BASE_DIR = function(){
