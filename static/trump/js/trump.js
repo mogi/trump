@@ -27,7 +27,8 @@ function echoCard(card){
 
 function echoDeck(){
   deck.shuffle()
-  for (var i = 1; i <= deck.length; j++) {
-    echoCard(deck.pop())
-  }
+  echoCard(deck.pop())
+  //for (var i = 1; i <= deck.length; j++) {
+  //  echoCard(deck.pop())
+  //}
 }
