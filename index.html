@@ -5,6 +5,12 @@
 	<title>trump</title>
   <script src="./import.js"></script>
 </head>
-<body onload="loadHTMLFile(BASE_DIR + '/static/trump/index.html')">
+<body>
+  <div id="target">
+  <!-- ここに他のHTMLが埋め込まれる -->
+   <script type="text/javascript" >
+     include("./static/trump/index.html");
+   </script>
+  </div>
 </body>
 </html>

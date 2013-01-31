@@ -4,11 +4,23 @@
 *   http://hiropo.co.uk/archives/303
 */
 (function(){
-    var importSrc = function(e){
-        return '<script type="text/javascript" src="'+ e +'"></script>' + "\n";
-    }
-    var path = BASE_DIR + '/static/trump/js/';
-    //trumpで使用するJS
-    document.write( importSrc( path + 'card.js' ) );
-    document.write( importSrc( path + 'trump.js' ) );
+  var importSrc = function(e){
+      return '<script type="text/javascript" src="'+ e +'"></script>' + "\n";
+  }
+  var BASE_DIR = function(){
+    array = location.href.split("/");
+    array.pop();
+    return array.join("/");
+  }()
+  var path = BASE_DIR + '/js/';
+
+  //trumpで使用するJS
+  document.write( importSrc( path + 'card.js' ) );
+  document.write( importSrc( path + 'trump.js' ) );
 })();
+
+var BASE_DIR = function(){
+  array = location.href.split("/");
+  array.pop();
+  return array.join("/");
+}()
