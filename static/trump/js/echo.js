@@ -1,6 +1,9 @@
 /**
  * 今のところデバッグ用のecho群
  */
+var deck = null;
+
+
 var echoCard = (function(){
   function echoCard(card){
     text = "suit : " + card.suit + "<br />" +
@@ -14,18 +17,14 @@ var echoCard = (function(){
   return echoCard;
 })();
 
-var deck = null;
-var deck = Deck.create(wild_quantity=1);
-deck.shuffle()
-
 var echoDeck = (function(){
   function echoDeck(){
     deck = Deck.create(wild_quantity=1);
     deck.shuffle()
     for (var i = 1; i <= deck.length; i++) {
-      d_text = "remaining deck : " + deck.length + "<br />";
+      d_text = "<p>deck create success.</p>";
       document.getElementById('deck-field').innerHTML = d_text;
-      text = "<p>deck create success.</p>";
+      text = "remaining deck : " + deck.length + "<br />";
       document.getElementById('card-field').innerHTML = text;
     }
     //_text = document.getElementById('target').innerHTML;
