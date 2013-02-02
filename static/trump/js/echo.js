@@ -1,8 +1,6 @@
 /**
  * 今のところデバッグ用のecho群
  */
-var deck = null;
-
 
 var echoCard = (function(){
   function echoCard(card){
@@ -35,6 +33,25 @@ var echoDeck = (function(){
   return echoDeck;
 })();
 
+
+var echoStore = (function(){
+  function echoStore(store){
+    for (var i = 0; i <= store.length; i++) {
+      t = "suit : " + store[i].suit + "<br />" +
+          "number : " + store[i].number + "<br />" +
+          "pip : " + store[i].isPip() + "<br />" +
+          "court : " + store[i].isCourt() + "<br />" +
+          "wild card : " + store[i].isWild() + "<br />"
+      ;
+      old_t = document.getElementById('store-field').innerHTML
+      new_t = old_t + t + "<br />"
+      document.getElementById('store-field').innerHTML = new_t;
+    }
+  };
+  return echoStore;
+})();
+
+
 var drawCard = (function(){
   function drawCard(){
     text = "remaining deck : " + deck.length + "<br />";
@@ -43,7 +60,10 @@ var drawCard = (function(){
     if (deck.length <= 0) {
       return null
     };
-    echoCard(deck.pop())
+    var _draw_card = deck.pop()
+    store.push(_draw_card)
+    echoCard(_draw_card)
+    echoStore(store)
   };
   return drawCard;
 })();
